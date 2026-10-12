@@ -1,0 +1,119 @@
+:root {
+  --text: #6e5a48;
+  --text-h: #2e2015;
+  --bg: #f0e4d3;
+  --border: #ddc9ac;
+  --code-bg: #e8d8bf;
+  --accent: #6b3a1f;
+  --accent-bg: rgba(107, 58, 31, 0.1);
+  --accent-border: rgba(107, 58, 31, 0.4);
+  --social-bg: rgba(232, 216, 191, 0.5);
+  --shadow:
+    rgba(46, 32, 21, 0.1) 0 10px 15px -3px, rgba(46, 32, 21, 0.06) 0 4px 6px -2px;
+
+  --sans: 'Cormorant Garamond', Georgia, serif;
+  --heading: 'Playfair Display', Georgia, serif;
+  --script: 'Great Vibes', cursive;
+  --typewriter: 'Special Elite', 'Courier New', monospace;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 19px/150% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 17px;
+  }
+}
+
+body {
+  margin: 0;
+  position: relative;
+  background: #ead0a6 url('./assets/parchment-bg.jpg') center / cover fixed no-repeat;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  box-shadow:
+    -40px 0 60px -20px rgba(10, 6, 3, 0.2),
+    40px 0 60px -20px rgba(10, 6, 3, 0.2);
+}
+
+#root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  box-shadow:
+    inset 0 0 40px 8px rgba(20, 12, 6, 0.12),
+    inset 0 0 90px 20px rgba(20, 12, 6, 0.06);
+}
+
+@media (min-width: 1167px) {
+  #root {
+    border-inline-color: rgba(20, 12, 6, 0.5);
+  }
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 32px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
