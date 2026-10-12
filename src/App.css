@@ -685,6 +685,7 @@ main.main-alt {
 @media (max-width: 720px) {
   .story-feature-body {
     grid-template-columns: 1fr;
+    align-items: stretch;
   }
 
   .story-feature-body.is-single {
@@ -699,9 +700,15 @@ main.main-alt {
     gap: 14px;
   }
 
+  .story-photo-slot:not(.has-multiple) {
+    aspect-ratio: auto;
+  }
+
   .story-feature-photo img,
-  .story-photo-slot {
-    aspect-ratio: 16 / 9;
+  .story-photo-slot img {
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
   }
 }
 
