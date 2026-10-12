@@ -38,6 +38,12 @@ body {
   background: #ead0a6 url('./assets/parchment-bg.jpg') center / cover fixed no-repeat;
 }
 
+@media (max-width: 700px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 #root {
   position: relative;
   z-index: 1;

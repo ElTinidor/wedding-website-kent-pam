@@ -845,3 +845,73 @@ main.main-alt {
   color: var(--accent);
 }
 
+@media (max-width: 700px) {
+  .navbar {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .nav-link {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .scroll-section {
+    scroll-margin-top: 64px;
+    padding: 40px 0;
+  }
+
+  main {
+    padding: 28px 14px 200px;
+  }
+
+  .page h1 {
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.12;
+  }
+
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .countdown-unit {
+    min-width: 0;
+  }
+
+  .countdown-grid .countdown-digit {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+
+  .countdown-unit-label {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+  .details-section {
+    scroll-margin-top: 64px;
+  }
+
+  .details-heading {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .timeline li {
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 16px;
+  }
+
+  .timeline .time {
+    min-width: 0;
+  }
+}
+
