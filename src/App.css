@@ -687,6 +687,10 @@ main.main-alt {
     grid-template-columns: 1fr;
   }
 
+  .story-feature-body.is-single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .story-feature-body.is-single .story-feature-photo-right {
     display: none;
   }
@@ -824,11 +828,70 @@ main.main-alt {
 }
 
 .prenup-grid img {
+  display: block;
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 12px;
+}
+
+.prenup-photo-button {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
   box-shadow: var(--shadow);
+  cursor: zoom-in;
+}
+
+.prenup-photo-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.prenup-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(24, 16, 11, 0.94);
+  cursor: zoom-out;
+}
+
+.prenup-lightbox img {
+  display: block;
+  max-width: min(96vw, 1400px);
+  max-height: 90vh;
+  max-height: 90svh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  touch-action: pinch-zoom;
+  cursor: auto;
+}
+
+.prenup-lightbox-close {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  background: rgba(24, 16, 11, 0.6);
+  color: white;
+  font: 32px/1 var(--sans);
+  cursor: pointer;
 }
 
 .site-footer {
@@ -847,24 +910,22 @@ main.main-alt {
 
 @media (max-width: 700px) {
   .navbar {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 4px;
-    padding: 8px 10px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 4px;
+    padding: 4px 8px;
   }
 
   .nav-link {
-    flex: 0 0 auto;
-    padding: 8px 12px;
-    font-size: 13px;
+    min-width: 0;
+    padding: 7px 2px;
+    font-size: clamp(10px, 3.1vw, 13px);
+    text-align: center;
+    white-space: nowrap;
   }
 
   .scroll-section {
-    scroll-margin-top: 64px;
+    scroll-margin-top: 82px;
     padding: 40px 0;
   }
 
@@ -897,7 +958,7 @@ main.main-alt {
   }
 
   .details-section {
-    scroll-margin-top: 64px;
+    scroll-margin-top: 82px;
   }
 
   .details-heading {
