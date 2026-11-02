@@ -1470,7 +1470,16 @@ main.main-alt {
   .principal-sponsor-list li {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px;
-    font-size: 13px;
+    font-size: clamp(11px, 3.3vw, 13px);
+  }
+
+  .principal-sponsor-list {
+    width: 100%;
+  }
+
+  .principal-sponsor-list li span {
+    overflow-wrap: normal;
+    text-wrap: balance;
   }
 
   .attire-color-palette {

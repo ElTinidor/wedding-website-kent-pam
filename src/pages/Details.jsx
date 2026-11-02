@@ -134,7 +134,7 @@ const entourageGroups = [
       ['Atty. Josenilio Reoma', 'Mrs. Ophelia Tantuan'],
       ['Mr. Edward Vilbar', 'Mrs. Rebecca Vilbar'],
       ['Archt. Marlone Dolayba', 'Mrs. Jacinta Dulfo'],
-      ['Engr. Roderick Richard Yanez', 'Mrs. Marichu Cabanada'],
+      ['Engr. Roderick Richard\u00a0Yanez', 'Mrs. Marichu Cabanada'],
       ['Mr. Marcelo Go', 'Mrs. Fe Go'],
       ['Mr. Antonio Balibalos', 'Mrs. Beorosa Balibalos'],
       ['Mr. Ronald del Rosario', 'Mrs. Gemma Noval'],
