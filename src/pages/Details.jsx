@@ -1,3 +1,4 @@
+import { LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react'
 import { QRCodeSVG } from 'qrcode.react'
 import Divider from '../components/Divider'
 import LightboxImage from '../components/LightboxImage'
@@ -196,10 +197,19 @@ const entourageGroups = [
 ]
 
 export default function Details() {
+  const prefersReducedMotion = useReducedMotion()
+  const reveal = (delay = 0) => ({
+    initial: prefersReducedMotion ? false : { opacity: 0, y: 18 },
+    whileInView: prefersReducedMotion ? undefined : { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.12 },
+    transition: { duration: 0.45, delay, ease: 'easeOut' },
+  })
+
   return (
-    <section className="page details">
-      <h1>Wedding Details</h1>
-      <Divider />
+    <LazyMotion features={domAnimation}>
+      <section className="page details">
+        <h1>Wedding Details</h1>
+        <Divider />
 
       <nav className="details-jump">
         <a href="#program">Program</a>
@@ -208,26 +218,26 @@ export default function Details() {
         <a href="#faq">FAQ</a>
       </nav>
 
-      <div id="program" className="details-section">
+      <m.div id="program" className="details-section" {...reveal()}>
         <h2 className="details-heading">Program</h2>
         <ol className="timeline">
-          {schedule.map((item) => (
-            <li key={item.time}>
+          {schedule.map((item, index) => (
+            <m.li key={item.time} {...reveal(index * 0.06)}>
               <span className="time">{item.time}</span>
               <div className="schedule-content">
                 <span className="title">{item.title}</span>
                 {item.note && <span className="schedule-note">{item.note}</span>}
               </div>
-            </li>
+            </m.li>
           ))}
         </ol>
-      </div>
+      </m.div>
 
-      <div id="venue" className="details-section">
+      <m.div id="venue" className="details-section" {...reveal()}>
         <h2 className="details-heading">Venue</h2>
         <div className="venue-list">
-          {venues.map((v) => (
-            <div className="venue-card" key={v.name}>
+          {venues.map((v, index) => (
+            <m.div className="venue-card" key={v.name} {...reveal(index * 0.1)}>
               <span className="venue-label">{v.label}</span>
               <h3>{v.name}</h3>
               {v.room && <p className="venue-room">{v.room}</p>}
@@ -262,16 +272,20 @@ export default function Details() {
                 />
                 <span>Scan for map</span>
               </div>
-            </div>
+            </m.div>
           ))}
         </div>
-      </div>
+      </m.div>
 
-      <div id="entourage" className="details-section">
+      <m.div id="entourage" className="details-section" {...reveal()}>
         <h2 className="details-heading">Wedding Entourage</h2>
         <div className="entourage-groups">
-          {entourageGroups.map((group) => (
-            <section className={`entourage-card${group.singleColumn ? ' entourage-single-column' : ''}`} key={group.title}>
+          {entourageGroups.map((group, index) => (
+            <m.section
+              className={`entourage-card${group.singleColumn ? ' entourage-single-column' : ''}`}
+              key={group.title}
+              {...reveal(index * 0.06)}
+            >
               <h3>{group.title}</h3>
               {group.couples ? (
                 <ul className="principal-sponsor-list">
@@ -293,16 +307,16 @@ export default function Details() {
                   ))}
                 </div>
               )}
-            </section>
+            </m.section>
           ))}
         </div>
-      </div>
+      </m.div>
 
-      <div id="faq" className="details-section">
+      <m.div id="faq" className="details-section" {...reveal()}>
         <h2 className="details-heading">Frequently Asked Questions</h2>
         <div className="faq-list">
-          {faqs.map((item) => (
-            <div className="faq-item" key={item.q}>
+          {faqs.map((item, index) => (
+            <m.div className="faq-item" key={item.q} {...reveal(index * 0.06)}>
               <h3>{item.q}</h3>
               <p>{item.a}</p>
               {item.attireGuide && (
@@ -350,10 +364,11 @@ export default function Details() {
                   </figure>
                 </div>
               )}
-            </div>
+            </m.div>
           ))}
         </div>
-      </div>
-    </section>
+      </m.div>
+      </section>
+    </LazyMotion>
   )
 }

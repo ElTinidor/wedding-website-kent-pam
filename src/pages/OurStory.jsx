@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { LazyMotion, domAnimation, m, useReducedMotion, useScroll, useSpring } from 'motion/react'
 import Divider from '../components/Divider'
 import LightboxImage from '../components/LightboxImage'
 import photo1 from '../assets/1.webp'
@@ -117,54 +119,113 @@ const chapters = [
 ]
 
 export default function OurStory() {
-  return (
-    <section className="page our-story">
-      <h1>Our Story</h1>
-      <Divider />
-      <p className="story-salutation">Dear Family & Friends,</p>
-      <p className="story-intro">
-        From two different sections in high school to the two names on a wedding
-        invitation, here's a little of how we got here.
-      </p>
+  const timelineRef = useRef(null)
+  const prefersReducedMotion = useReducedMotion()
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ['start 75%', 'end 70%'],
+  })
+  const timelineProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 24,
+    restDelta: 0.001,
+  })
 
-      <div className="story-timeline">
-        {chapters.map((chapter) => {
+  return (
+    <LazyMotion features={domAnimation}>
+      <section className="page our-story">
+        <h1>Our Story</h1>
+        <Divider />
+        <p className="story-salutation">Dear Family & Friends,</p>
+        <p className="story-intro">
+          From two different sections in high school to the two names on a wedding
+          invitation, here's a little of how we got here.
+        </p>
+
+        <div className="story-timeline" ref={timelineRef}>
+          <span className="story-timeline-track" aria-hidden="true" />
+          <m.span
+            className="story-timeline-progress"
+            aria-hidden="true"
+            style={{ scaleY: prefersReducedMotion ? 0 : timelineProgress }}
+          />
+          {chapters.map((chapter) => {
           const primaryPhoto = chapter.photos?.[0]
           const hasSecondaryPhoto = chapter.photos?.length > 1
           const secondaryPhoto = chapter.photos?.[1]
           const mirroredPhotos = chapter.mirroredPhotos ?? []
 
           return (
-            <article className="story-feature" key={chapter.title}>
-              <div className="story-feature-header">
+            <m.article
+              className="story-feature"
+              key={chapter.title}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
+              whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.18 }}
+              transition={{ duration: 0.55, ease: 'easeOut' }}
+            >
+              <m.span
+                className="story-timeline-marker"
+                aria-hidden="true"
+                initial={prefersReducedMotion ? false : { scale: 0.7 }}
+                whileInView={prefersReducedMotion ? undefined : { scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+              />
+              <m.div
+                className="story-feature-header"
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+                whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.45, ease: 'easeOut' }}
+              >
                 <span className="story-year">{chapter.year}</span>
                 <h2>{chapter.title}</h2>
-              </div>
+              </m.div>
               <div className={'story-feature-body' + (hasSecondaryPhoto ? '' : ' is-single') }>
-                <div className="story-photo-slot story-feature-photo story-feature-photo-left">
+                <m.div
+                  className="story-photo-slot story-feature-photo story-feature-photo-left"
+                  initial={prefersReducedMotion ? false : { opacity: 0, x: -18 }}
+                  whileInView={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
+                >
                   <LightboxImage
                     src={primaryPhoto}
                     alt={`${chapter.title} photo`}
                     mirrored={mirroredPhotos.includes(primaryPhoto)}
                   />
-                </div>
-                <div className="story-feature-text">
+                </m.div>
+                <m.div
+                  className="story-feature-text"
+                  initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
+                  whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.12, ease: 'easeOut' }}
+                >
                   <p>{chapter.text}</p>
-                </div>
+                </m.div>
                 {hasSecondaryPhoto && (
-                  <div className="story-photo-slot story-feature-photo story-feature-photo-right">
+                  <m.div
+                    className="story-photo-slot story-feature-photo story-feature-photo-right"
+                    initial={prefersReducedMotion ? false : { opacity: 0, x: 18 }}
+                    whileInView={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
+                  >
                     <LightboxImage
                       src={secondaryPhoto}
                       alt={`${chapter.title} photo`}
                       mirrored={mirroredPhotos.includes(secondaryPhoto)}
                     />
-                  </div>
+                  </m.div>
                 )}
               </div>
-            </article>
+            </m.article>
           )
-        })}
-      </div>
-    </section>
+          })}
+        </div>
+      </section>
+    </LazyMotion>
   )
 }

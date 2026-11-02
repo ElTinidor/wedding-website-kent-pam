@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react'
 import Divider from '../components/Divider'
 import LightboxImage from '../components/LightboxImage'
 
@@ -37,6 +38,7 @@ const photos = photoEntries
 function PrenupSlideshow() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
   const activePhoto = slideshowPhotos[activeIndex]
 
   useEffect(() => {
@@ -59,17 +61,28 @@ function PrenupSlideshow() {
   }
 
   return (
-    <section className="prenup-slideshow-section" aria-labelledby="prenup-slideshow-heading">
-      <h2 id="prenup-slideshow-heading">Prenup Locations</h2>
-      <div className="prenup-slideshow" role="region" aria-label="Prenup photos slideshow" aria-roledescription="carousel">
-        <div className="prenup-slide-viewport">
-          <LightboxImage
-            key={activePhoto.src}
-            src={activePhoto.src}
-            alt={`${activePhoto.location} prenup photo ${activePhoto.photoNumber}`}
-            className="prenup-slide-image"
-          />
-          <button
+    <LazyMotion features={domAnimation}>
+      <section className="prenup-slideshow-section" aria-labelledby="prenup-slideshow-heading">
+        <h2 id="prenup-slideshow-heading">Prenup Locations</h2>
+        <div className="prenup-slideshow" role="region" aria-label="Prenup photos slideshow" aria-roledescription="carousel">
+          <div className="prenup-slide-viewport">
+            <AnimatePresence initial={false}>
+              <m.div
+                key={activePhoto.src}
+                className="prenup-slide-content"
+                initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.99 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={prefersReducedMotion ? undefined : { opacity: 0, scale: 1.01 }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
+              >
+                <LightboxImage
+                  src={activePhoto.src}
+                  alt={`${activePhoto.location} prenup photo ${activePhoto.photoNumber}`}
+                  className="prenup-slide-image"
+                />
+              </m.div>
+            </AnimatePresence>
+            <button
             type="button"
             className="prenup-slide-control previous"
             onClick={() => showPhoto(activeIndex - 1)}
@@ -78,8 +91,8 @@ function PrenupSlideshow() {
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="m15 18-6-6 6-6" />
             </svg>
-          </button>
-          <button
+            </button>
+            <button
             type="button"
             className="prenup-slide-control next"
             onClick={() => showPhoto(activeIndex + 1)}
@@ -88,13 +101,13 @@ function PrenupSlideshow() {
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="m9 18 6-6-6-6" />
             </svg>
-          </button>
-        </div>
-        <div className="prenup-slide-meta">
-          <p className="prenup-slide-count" aria-live={isAutoplayPaused ? 'polite' : 'off'}>
-            {activePhoto.location} · {activeIndex + 1} / {slideshowPhotos.length}
-          </p>
-          <button
+            </button>
+          </div>
+          <div className="prenup-slide-meta">
+            <p className="prenup-slide-count" aria-live={isAutoplayPaused ? 'polite' : 'off'}>
+              {activePhoto.location} · {activeIndex + 1} / {slideshowPhotos.length}
+            </p>
+            <button
             type="button"
             className="prenup-autoplay-control"
             onClick={() => setIsAutoplayPaused((paused) => !paused)}
@@ -110,25 +123,26 @@ function PrenupSlideshow() {
                 <path d="M8 5h3v14H8zM15 5h3v14h-3z" />
               </svg>
             )}
-          </button>
+            </button>
+          </div>
+          <input
+            className="prenup-slide-range"
+            type="range"
+            min="0"
+            max={slideshowPhotos.length - 1}
+            value={activeIndex}
+            onChange={(event) => setActiveIndex(Number(event.target.value))}
+            aria-label="Choose a prenup photo"
+            aria-valuetext={`${activePhoto.location}, photo ${activePhoto.photoNumber}; ${activeIndex + 1} of ${slideshowPhotos.length}`}
+            style={{
+              '--slide-progress': `${slideshowPhotos.length > 1
+                ? (activeIndex / (slideshowPhotos.length - 1)) * 100
+                : 0}%`,
+            }}
+          />
         </div>
-        <input
-          className="prenup-slide-range"
-          type="range"
-          min="0"
-          max={slideshowPhotos.length - 1}
-          value={activeIndex}
-          onChange={(event) => setActiveIndex(Number(event.target.value))}
-          aria-label="Choose a prenup photo"
-          aria-valuetext={`${activePhoto.location}, photo ${activePhoto.photoNumber}; ${activeIndex + 1} of ${slideshowPhotos.length}`}
-          style={{
-            '--slide-progress': `${slideshowPhotos.length > 1
-              ? (activeIndex / (slideshowPhotos.length - 1)) * 100
-              : 0}%`,
-          }}
-        />
-      </div>
-    </section>
+      </section>
+    </LazyMotion>
   )
 }
 
