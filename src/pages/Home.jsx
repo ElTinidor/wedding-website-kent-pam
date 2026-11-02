@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { WEDDING_DATE } from '../lib/supabase'
 import Divider from '../components/Divider'
-import heroImg from '../assets/hero.jpg'
+import LightboxImage from '../components/LightboxImage'
+import heroImg from '../assets/hero.webp'
 
 function getCountdown() {
   const diff = WEDDING_DATE.getTime() - Date.now()
@@ -28,7 +29,7 @@ export default function Home() {
   return (
     <section className="page home">
       <div className="hero-photo-wrap">
-        <img src={heroImg} alt="Kenneth and Pamela" className="hero-photo" />
+        <LightboxImage src={heroImg} alt="Kenneth and Pamela" className="hero-photo" />
         <span className="hero-monogram">K&amp;P</span>
       </div>
       <p className="eyebrow">We're Getting Married</p>

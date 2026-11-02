@@ -1,4 +1,4 @@
-import sakuraSheet from '../assets/vecteezy_spring-set-of-sakura-flowers-isolated-on-white-background_56709932.jpg'
+import sakuraSheet from '../assets/vecteezy_spring-set-of-sakura-flowers-isolated-on-white-background_56709932.webp'
 
 export default function SakuraFlourish() {
   return (

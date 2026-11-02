@@ -7,7 +7,7 @@ export default function Playlist() {
     <section className="page playlist">
       <h1>Our Playlist</h1>
       <Divider />
-      <p>Songs we love, request one on your RSVP note if you'd like it added.</p>
+      <p>A collection of songs we love, including some that tell the story of our love.</p>
       {playlistId ? (
         <iframe
           title="Wedding playlist"

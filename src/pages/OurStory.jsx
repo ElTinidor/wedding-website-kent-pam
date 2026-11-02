@@ -1,32 +1,34 @@
 import Divider from '../components/Divider'
-import photo1 from '../assets/1.jpg'
-import photo2 from '../assets/2.jpg'
-import photo3 from '../assets/3.jpg'
-import photo4 from '../assets/4.jpg'
-import photo5 from '../assets/5.jpg'
-import photo6 from '../assets/6.jpeg'
-import photo7 from '../assets/7.jpg'
-import photo8 from '../assets/8.jpg'
-import photo9 from '../assets/9.jpg'
-import photo10 from '../assets/10.jpg'
-import photo11 from '../assets/11.jpeg'
-import photo12 from '../assets/12.jpeg'
-import photo13 from '../assets/13.jpeg'
-import photo14 from '../assets/14.jpeg'
-import photo15 from '../assets/15.jpeg'
+import LightboxImage from '../components/LightboxImage'
+import photo1 from '../assets/1.webp'
+import photo2 from '../assets/2.webp'
+import photo3 from '../assets/3.webp'
+import photo4 from '../assets/4.webp'
+import photo5 from '../assets/5.webp'
+import photo6 from '../assets/6.webp'
+import photo7 from '../assets/7.webp'
+import photo8 from '../assets/8.webp'
+import photo9 from '../assets/9.webp'
+import photo10 from '../assets/10.webp'
+import photo11 from '../assets/11.webp'
+import photo12 from '../assets/12.webp'
+import photo13 from '../assets/13.webp'
+import photo14 from '../assets/14.webp'
+import photo15 from '../assets/15.webp'
 
 const chapters = [
   {
     year: 'Growing Up',
     title: 'Before We Met',
-    photos: [photo1, photo2],
+    photos: [photo2, photo1],
     text: `Long before our paths crossed, we were just two kids in Mandaue and Lapu-Lapu City growing up on
     our own separate adventures, never guessing we'd one day share a lifetime.`,
   },
   {
     year: '2011',
     title: 'High School Beginnings',
-    photos: [photo3, photo4],
+    photos: [photo4, photo3],
+    mirroredPhotos: [photo4],
     flower: true,
     text: `We started high school at Mandaue City Comprehensive National High School,
     but in different sections. Pamela was always the top student in her class, while Kenneth was the quiet, shy one in the back of the room. `,
@@ -47,6 +49,7 @@ const chapters = [
     year: 'December 2013',
     title: 'The Confession',
     photos: [photo5],
+    mirroredPhotos: [photo5],
     text: `Kenneth confessed to Pamela by text. Turned out Pamela had been quietly carrying the
     same feelings since September, she just never told a soul.`,
   },
@@ -54,6 +57,7 @@ const chapters = [
     year: '2014',
     title: 'High School Graduation',
     photos: [photo7],
+    mirroredPhotos: [photo7],
     text: `We graduated high school together, medals and diplomas in hand, ready for
     whatever came next.`,
   },
@@ -72,6 +76,7 @@ const chapters = [
     year: '2023',
     title: 'Our First Trips Together',
     photos: [photo12, photo9],
+    mirroredPhotos: [photo12, photo9],
     text: `Our first international trips together, Singapore and Malaysia. New cities,
     new memories, and new adventures, always better when experienced side by side.`,
   },
@@ -79,6 +84,7 @@ const chapters = [
     year: '2024 to 2025',
     title: 'Finding Our Way Back',
     photos: [photo11, photo13],
+    mirroredPhotos: [photo13],
     text: `Through distance, change, and new chapters in our lives, we continued finding
     our way back to each other. With patience, honest conversations, handwritten
     letters, and renewed commitment, our relationship became stronger and more certain.`,
@@ -93,6 +99,7 @@ const chapters = [
     year: 'October 18, 2025',
     title: 'The Proposal',
     photos: [photo10],
+    mirroredPhotos: [photo10],
     text: `In Hong Kong and Macau, in front of the Eiffel Tower replica at The Parisian
     Macau, Kenneth proposed, with the ring nestled in a Quidditch-inspired holder, a nod
     to Pamela's love for Harry Potter. He'd set up a tripod to catch the moment on
@@ -103,6 +110,7 @@ const chapters = [
     year: '2026',
     title: 'Today',
     photos: [photo15],
+    mirroredPhotos: [photo15],
     text: `Pamela followed Kenneth to Manila for work, and in June 2026 we took our casual prenup
     photos on the streets of Taiwan. And now, we're finally ready to say "I do."`,
   },
@@ -124,6 +132,7 @@ export default function OurStory() {
           const primaryPhoto = chapter.photos?.[0]
           const hasSecondaryPhoto = chapter.photos?.length > 1
           const secondaryPhoto = chapter.photos?.[1]
+          const mirroredPhotos = chapter.mirroredPhotos ?? []
 
           return (
             <article className="story-feature" key={chapter.title}>
@@ -133,14 +142,22 @@ export default function OurStory() {
               </div>
               <div className={'story-feature-body' + (hasSecondaryPhoto ? '' : ' is-single') }>
                 <div className="story-photo-slot story-feature-photo story-feature-photo-left">
-                  <img src={primaryPhoto} alt={chapter.title} />
+                  <LightboxImage
+                    src={primaryPhoto}
+                    alt={`${chapter.title} photo`}
+                    mirrored={mirroredPhotos.includes(primaryPhoto)}
+                  />
                 </div>
                 <div className="story-feature-text">
                   <p>{chapter.text}</p>
                 </div>
                 {hasSecondaryPhoto && (
                   <div className="story-photo-slot story-feature-photo story-feature-photo-right">
-                    <img src={secondaryPhoto} alt={chapter.title} />
+                    <LightboxImage
+                      src={secondaryPhoto}
+                      alt={`${chapter.title} photo`}
+                      mirrored={mirroredPhotos.includes(secondaryPhoto)}
+                    />
                   </div>
                 )}
               </div>
