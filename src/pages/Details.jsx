@@ -194,6 +194,13 @@ const entourageGroups = [
       },
     ],
   },
+  {
+    title: 'Bearer & Flower Girl',
+    columns: [
+      { title: 'Bearer', names: ['Pierro Ezequiel Oliveros'] },
+      { title: 'Flower Girl', names: ['Pritz Elisha Plariza'] },
+    ],
+  },
 ]
 
 export default function Details() {

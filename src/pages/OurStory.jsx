@@ -68,7 +68,7 @@ const chapters = [
     title: 'College Years',
     photos: [photo8],
     text: `Kenneth studied Computer Engineering at University of San Carlos, Pamela took
-    Accounting at University of San Jose-Recoletos. Even while studying at different
+    Accountancy at University of San Jose-Recoletos. Even while studying at different
     universities, we continued making time for one another. Many afternoons were spent
     waiting outside USJ-R for classes to end, followed by dates at Plaza Independencia.
     After graduation, Kenneth courted Pamela properly, and on March 6, 2021, we made it
