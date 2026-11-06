@@ -3,26 +3,42 @@ import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from '
 import Divider from '../components/Divider'
 import LightboxImage from '../components/LightboxImage'
 
-const prenupPhotos = import.meta.glob('../assets/prenup/*.{jpg,jpeg,png,webp,avif}', {
-  eager: true,
-  import: 'default',
+const prenupPhotos = import.meta.glob(
+  [
+    '../assets/prenup/*.{jpg,jpeg,png,webp,avif}',
+    '!../assets/prenup/prenup-montebello-hs-*.jpg',
+  ],
+  {
+    eager: true,
+    import: 'default',
+  },
+)
+const photoEntries = Object.entries(prenupPhotos).filter(([path]) => {
+  if (path.endsWith('.webp')) return true
+  const webpPath = path.replace(/\.(jpg|jpeg|png|avif)$/i, '.webp')
+  return !(webpPath in prenupPhotos)
 })
-const photoEntries = Object.entries(prenupPhotos)
 const slideshowPhotos = photoEntries
   .map(([path, src]) => {
-    const match = path.match(/prenup-(pacific-cebu-resort|taiwan|montebello)-(\d+)\.(jpg|jpeg|png|webp|avif)$/)
+    const match = path.match(/prenup-(pacific-cebu-resort|taiwan|montebello-hs|montebello)-(\d+)\.(jpg|jpeg|png|webp|avif)$/)
     if (!match) return null
 
     const locations = {
       'pacific-cebu-resort': 'Pacific Cebu Resort',
       taiwan: 'Taiwan',
+      'montebello-hs': 'Montebello Hotel Cebu',
       montebello: 'Montebello Hotel Cebu',
     }
 
     return {
       src,
       location: locations[match[1]],
-      locationOrder: { 'pacific-cebu-resort': 0, taiwan: 1, montebello: 2 }[match[1]],
+      locationOrder: {
+        'pacific-cebu-resort': 0,
+        taiwan: 1,
+        'montebello-hs': 2,
+        montebello: 3,
+      }[match[1]],
       photoNumber: Number(match[2]),
     }
   })
@@ -32,7 +48,7 @@ const slideshowPhotos = photoEntries
       || first.photoNumber - second.photoNumber
   })
 const photos = photoEntries
-  .filter(([path]) => !/prenup-(pacific-cebu-resort|taiwan|montebello)-\d+\.(jpg|jpeg|png|webp|avif)$/.test(path))
+  .filter(([path]) => !/prenup-(pacific-cebu-resort|taiwan|montebello(?:-hs)?)-\d+\.(jpg|jpeg|png|webp|avif)$/.test(path))
   .map(([, src]) => src)
 
 function PrenupSlideshow() {
