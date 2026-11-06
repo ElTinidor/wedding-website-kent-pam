@@ -24,8 +24,8 @@ const chapters = [
     year: 'Growing Up',
     title: 'Before We Met',
     photos: [photo2, photo1],
-    text: `Long before our paths crossed, we were just two kids in Mandaue and Lapu-Lapu City growing up on
-    our own separate adventures, never guessing we'd one day share a lifetime.`,
+    text: `Long before our paths crossed, we were just two kids in Mandaue and Lapu-Lapu City, living
+    separate lives and never imagining we'd one day spend our lives together.`,
   },
   {
     year: '2011',
@@ -34,15 +34,15 @@ const chapters = [
     mirroredPhotos: [photo4],
     flower: true,
     text: `We started high school at Mandaue City Comprehensive National High School,
-    but in different sections. Pamela was always the top student in her class, while Kenneth was the quiet, shy one in the back of the room. `,
+    but in different sections. Pamela was always the top student in her class, while Kenneth was the quiet, shy one at the back of the room. `,
   },
   {
     year: '2012 to 2013',
     title: 'Bluejay Section',
     photos: [photo6],
     text: `Second year, we landed in the same section, Bluejay. Pamela asked the class
-    for a 10-peso contribution one day, and that was it: glasses, cute, pretty,
-    Kenneth was smitten. By September 2013, in third year, a lunch break hangout
+    for a 10-peso contribution one day, and that was it: Kenneth noticed her glasses,
+    thought she was cute and pretty, and was smitten. By September 2013, in third year, a lunch break hangout
     during the school Science Fair at the Annex Campus led to a memorable moment.
     Kenneth was encouraged to play the guitar, and he played "Pangarap Lang Kita."
     Pamela was amazed, and little did Kenneth know, she was beginning to develop a

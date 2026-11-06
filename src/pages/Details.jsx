@@ -69,7 +69,7 @@ const faqs = [
   },
   {
     q: 'When should I RSVP by?',
-    a: 'Please RSVP through our RSVP tab as soon as you can so we can finalize headcounts and seating. We appreciate your prompt response!',
+    a: 'Please RSVP through our RSVP tab by November 30 so we can finalize headcounts and seating. We appreciate your prompt response!',
   },
 ]
 
