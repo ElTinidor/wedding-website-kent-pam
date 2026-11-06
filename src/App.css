@@ -416,6 +416,21 @@ main.main-alt {
   text-align: center;
 }
 
+.page .playlist-title {
+  margin: 24px 0 12px;
+  font-size: clamp(26px, 6.5vw, 52px);
+  line-height: 0.9;
+  letter-spacing: -1px;
+}
+
+.playlist-title span {
+  display: block;
+}
+
+.playlist-title span + span {
+  margin-top: 0.08em;
+}
+
 .venue-list {
   display: flex;
   flex-direction: column;

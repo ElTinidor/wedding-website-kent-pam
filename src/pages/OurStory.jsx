@@ -17,6 +17,7 @@ import photo12 from '../assets/12.webp'
 import photo13 from '../assets/13.webp'
 import photo14 from '../assets/14.webp'
 import photo15 from '../assets/15.webp'
+import photo18 from '../assets/18.webp'
 
 const chapters = [
   {
@@ -40,20 +41,25 @@ const chapters = [
     title: 'Bluejay Section',
     photos: [photo6],
     text: `Second year, we landed in the same section, Bluejay. Pamela asked the class
-    for a 10-peso contribution one day, and that was it: glasses, cute, pretty, Kenneth
-    was smitten. An anonymous prank text that summer turned into daily texts and
-    Facebook chats. By third year, Kenneth gave a Christmas-gift to Pamela. By fourth
-    year, the whole class had heard the rumors. There were 5 PM waits by the 7-Eleven
-    just to say hi, awkward encounters, and one particular walk in the
-    rain with "Walking in the Rain" playing in Kenneth's head the whole time.`,
+    for a 10-peso contribution one day, and that was it: glasses, cute, pretty,
+    Kenneth was smitten. By September 2013, in third year, a lunch break hangout
+    during the school Science Fair at the Annex Campus led to a memorable moment.
+    Kenneth was encouraged to play the guitar, and he played "Pangarap Lang Kita."
+    Pamela was amazed, and little did Kenneth know, she was beginning to develop a
+    crush on him, too. During the semestral break, an anonymous prank text turned
+    into daily texts and Facebook chats. Kenneth later gave Pamela a Christmas gift.`,
   },
   {
-    year: 'December 2013',
+    year: 'December 2013 to 2014',
     title: 'The Confession',
     photos: [photo5],
     mirroredPhotos: [photo5],
-    text: `Kenneth confessed to Pamela by text. Turned out Pamela had been quietly carrying the
-    same feelings since September, she just never told a soul.`,
+    text: `In December 2013, Kenneth finally confessed his feelings to Pamela through
+    a text message. Little did he know, Pamela had been quietly carrying the same
+    feelings since September, keeping her little crush a secret from everyone. By
+    fourth year, the whole class had heard the rumors. There were 5 PM waits by the
+    7-Eleven just to say hi, awkward encounters, and one particular walk in the rain
+    with "Walking in the Rain" playing in Kenneth's head the whole time.`,
   },
   {
     year: '2014',
@@ -61,60 +67,78 @@ const chapters = [
     photos: [photo7],
     mirroredPhotos: [photo7],
     text: `We graduated high school together, medals and diplomas in hand, ready for
-    whatever came next.`,
+    whatever came next. Kenneth wanted a photo with Pamela but was too shy to ask,
+    so his mom stepped in and asked Pamela for him. A little photo, a little courage
+    borrowed from Mom, and another sweet memory to keep.`,
   },
   {
     year: '2015 to 2021',
     title: 'College Years',
     photos: [photo8],
-    text: `Kenneth studied Computer Engineering at University of San Carlos, Pamela took
-    Accountancy at University of San Jose-Recoletos. Even while studying at different
-    universities, we continued making time for one another. Many afternoons were spent
-    waiting outside USJ-R for classes to end, followed by dates at Plaza Independencia.
-    After graduation, Kenneth courted Pamela properly, and on March 6, 2021, we made it
-    official.`,
+    text: `Kenneth pursued Computer Engineering at the University of San Carlos, while
+    Pamela took Accountancy at the University of San Jose-Recoletos. Despite studying
+    at different universities, they always found time for each other. Many afternoons
+    were spent waiting outside USJ-R for classes to end, followed by dates at Plaza
+    Independencia. After graduation, Kenneth finally courted Pamela properly. And on
+    March 6, 2021, after years of friendship, stolen moments, and unspoken feelings,
+    they officially became a couple.`,
   },
   {
     year: '2023',
     title: 'Our First Trips Together',
     photos: [photo12, photo9],
     mirroredPhotos: [photo12, photo9],
-    text: `Our first international trips together, Singapore and Malaysia. New cities,
-    new memories, and new adventures, always better when experienced side by side.`,
+    text: `Our first international adventures took us to Singapore and Malaysia. From
+    exploring new cities to discovering new places, every trip gave us memories to
+    cherish. Different destinations, countless firsts, and the same favorite travel
+    companion.`,
   },
   {
     year: '2024 to 2025',
     title: 'Finding Our Way Back',
     photos: [photo11, photo13],
     mirroredPhotos: [photo13],
-    text: `Through distance, change, and new chapters in our lives, we continued finding
-    our way back to each other. With patience, honest conversations, handwritten
-    letters, and renewed commitment, our relationship became stronger and more certain.`,
+    text: `Not every chapter was easy. We went through heartbreak, distance, and changes
+    that led us down separate paths. But sometimes, love finds its way back. Through
+    honest conversations, handwritten letters, patience, and a renewed commitment, we
+    found our way back to each other, this time with a deeper understanding of what we
+    meant to one another.`,
   },
   {
     year: 'May 18, 2025',
     title: 'Together Again',
     photos: [photo14],
-    text: `Kenneth asked if he could be her boyfriend again, gifted her with 18 flowers since it was May 18, 2025.`,
+    text: `After Pamela gave Kenneth a second chance, he immediately booked a flight
+    back to Cebu, determined to court her all over again. On May 18, 2025, with 18
+    flowers in hand to mark the 18th day of May, Kenneth asked Pamela if he could be
+    her boyfriend again. After everything they had been through, they chose each other
+    once more, ready to begin a new chapter together.`,
   },
   {
     year: 'October 18, 2025',
     title: 'The Proposal',
     photos: [photo10],
     mirroredPhotos: [photo10],
-    text: `In Hong Kong and Macau, in front of the Eiffel Tower replica at The Parisian
-    Macau, Kenneth proposed, with the ring nestled in a Quidditch-inspired holder, a nod
-    to Pamela's love for Harry Potter. He'd set up a tripod to catch the moment on
-    timer, only to realize afterward it had recorded a video instead. Some things you
-    just can't plan perfectly. She said yes anyway.`,
+    text: `During their trip to Hong Kong and Macau, Kenneth chose the Eiffel Tower
+    replica at The Parisian Macau as the place to ask Pamela to spend forever with him.
+    The ring was tucked inside a Quidditch-inspired holder, a thoughtful nod to Pamela's
+    love for Harry Potter. Kenneth even set up a tripod to capture the moment, hoping
+    to get a perfect photo on timer, only to discover later that it had recorded a video
+    instead. When Kenneth popped the question, Pamela's first reaction was, "Did you
+    ask my parents about this first?" A little unexpected question in the middle of a
+    big romantic moment! But of course, she said yes.`,
   },
   {
     year: '2026',
-    title: 'Today',
-    photos: [photo15],
+    title: 'The Road to Forever',
+    photos: [photo15, photo18],
     mirroredPhotos: [photo15],
-    text: `Pamela followed Kenneth to Manila for work, and in June 2026 we took our casual prenup
-    photos on the streets of Taiwan. And now, we're finally ready to say "I do."`,
+    text: `Pamela followed Kenneth to Manila as they began building a life together in
+    a new city. In June 2026, they went on their second international adventure to
+    Taiwan, where they also captured their casual prenup photos along its charming
+    streets. From high school classmates to travel companions, from heartbreak to
+    second chances, every chapter led them here. And now, they're finally ready to say
+    "I do."`,
   },
 ]
 
