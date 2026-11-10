@@ -140,7 +140,7 @@ const entourageGroups = [
       ['Mr. Ronald del Rosario', 'Mrs. Gemma Noval'],
       ['Engr. Samuel Chen', 'Mrs. Anavic Chen'],
       ['Mrs. Maria Theresa Plariza', 'Mrs. Mayflor Planas'],
-      ['Mrs. Rizalyn Vestil', 'Mrs. Grace Aberion'],
+      ['Mrs. Rizalyn Phelps', 'Mrs. Grace Aberion'],
       ['Mr. Anicieto Gingco', 'Mrs. Anicieta Gingco'],
       ['Mr. Antonio Plariza', 'Mrs. Rosalina Plariza'],
       ['Mr. Erwin Plariza', 'Mrs. Josephine Plariza'],

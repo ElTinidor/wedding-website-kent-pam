@@ -32,7 +32,7 @@ export default function Home() {
         <LightboxImage src={heroImg} alt="Kenneth and Pamela" className="hero-photo" />
         <span className="hero-monogram">K&amp;P</span>
       </div>
-      <p className="eyebrow">We're Getting Married</p>
+      <p className="eyebrow">We are getting married</p>
       <h1>Kenneth &amp; Pamela</h1>
       <Divider />
       <p className="wedding-date">

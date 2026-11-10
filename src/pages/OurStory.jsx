@@ -24,7 +24,7 @@ const chapters = [
     year: 'Growing Up',
     title: 'Before We Met',
     photos: [photo2, photo1],
-    text: `Long before our paths crossed, we were just two kids in Mandaue and Lapu-Lapu City, living
+    text: `Long before our paths crossed, we were just two kids in Lapu-Lapu and Mandaue City, living
     separate lives and never imagining we'd one day spend our lives together.`,
   },
   {
@@ -43,7 +43,7 @@ const chapters = [
     text: `Second year, we landed in the same section, Bluejay. Pamela asked the class
     for a 10-peso contribution one day, and that was it: Kenneth noticed her glasses,
     thought she was cute and pretty, and was smitten. By September 2013, in third year, a lunch break hangout
-    during the school Science Fair at the Annex Campus led to a memorable moment.
+    during the school Math and Science Fair at the Annex Campus led to a memorable moment.
     Kenneth was encouraged to play the guitar, and he played "Pangarap Lang Kita."
     Pamela was amazed, and little did Kenneth know, she was beginning to develop a
     crush on him, too. During the semestral break, an anonymous prank text turned
@@ -62,7 +62,7 @@ const chapters = [
     with "Walking in the Rain" playing in Kenneth's head the whole time.`,
   },
   {
-    year: '2014',
+    year: '2015',
     title: 'High School Graduation',
     photos: [photo7],
     mirroredPhotos: [photo7],
@@ -109,9 +109,9 @@ const chapters = [
     title: 'Together Again',
     photos: [photo14],
     text: `After Pamela gave Kenneth a second chance, he immediately booked a flight
-    back to Cebu, determined to court her all over again. On May 18, 2025, with 18
-    flowers in hand to mark the 18th day of May, Kenneth asked Pamela if he could be
-    her boyfriend again. After everything they had been through, they chose each other
+    back to Cebu, determined to court her all over again. On May 18, 2025, Kenneth
+    brought Pamela two bouquets of nine roses, 18 in all, to mark the 18th day of May
+    and asked Pamela if he could be her boyfriend again. After everything they had been through, they chose each other
     once more, ready to begin a new chapter together.`,
   },
   {
@@ -134,7 +134,7 @@ const chapters = [
     photos: [photo15, photo18],
     mirroredPhotos: [photo15],
     text: `Pamela followed Kenneth to Manila as they began building a life together in
-    a new city. In June 2026, they went on their second international adventure to
+    a new city. In June 2026, they went on their third international adventure to
     Taiwan, where they also captured their casual prenup photos along its charming
     streets. From high school classmates to travel companions, from heartbreak to
     second chances, every chapter led them here. And now, they're finally ready to say
